@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!-- the project element's name attribute will be used in the name of the 
+	module's jar file -->
+<project name="fmk-dosistiltekst-wrapper" default="jar" basedir=".">
+
+	<property name="sourceversion" value="1.7"/>
+	<property name="targetversion" value="1.7"/>
+		
+	<property file="build.properties" />
+	<property file="revision.properties" />
+	<property name="trifork-common" value="${basedir}/../trifork-common" />
+	<property name="npm.local.executable" value="npm" />
+	<import file="${trifork-common}/etc/build-common.xml" />
+
+	<property environment="env" />
+
+	<path id="sourcepath">
+		<pathelement location="src" />
+	</path>
+
+
+	
+	<target name="compile-test" depends="compile,init-test, resolve-test">
+		<echo message="test.dir=${test.dir}" />
+		<javac classpathref="compile-test-classpath" destdir="target/test"
+			debug="true" encoding="${encoding}">
+			<src path="${test.dir}" />
+		</javac>
+		<copy todir="target/test" encoding="${encoding}">
+			<fileset dir="${test.dir}">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="test-on-jenkins">
+		<property name="dosistiltekstJSlocation" value="../../fmk-dosis-til-tekst-ts/workspace/target/dosistiltekst.js" />
+		<antcall target="test"/>
+	</target>
+	
+	<target name="test-local">
+		<property name="dosistiltekstJSlocation" value="../fmk-dosis-til-tekst-ts/target/dosistiltekst.js" />
+		<antcall target="test"/>
+	</target>
+	
+	<target name="test-do">
+		<condition property="cond.jmx.port" value="${jmx.port}" else="8005">
+			<isset property="jmx.port"/>
+		</condition>
+		
+		<condition property="cond.jmx.remote" value="true" else="false">
+			<isset property="jmx.port"/>	
+		</condition>
+
+		<condition property="cond.jmx.auth" value="${jmx.auth}" else="false">
+			<isset property="jmx.auth"/>	
+		</condition>
+        <junit forkmode="once" fork="true" failureproperty="test.failed" maxmemory="${testMaxMemory}" timeout="${unittest.timeout.millis}"
+               showoutput="true" >
+			<sysproperty key="net.sourceforge.cobertura.datafile" file="target/cobertura.ser" />
+            <sysproperty key="test.with.memorydb" value="true" />
+			<classpath refid="testclasspath" />
+			<jvmarg value="-Duser.timezone=Europe/Copenhagen"/>
+			<jvmarg value="-Dcom.sun.management.jmxremote=${cond.jmx.remote}"/>
+			<jvmarg value="-Dcom.sun.management.jmxremote.port=${cond.jmx.port}"/>
+			<jvmarg value="-Dcom.sun.management.jmxremote.ssl=false"/>
+			<jvmarg value="-Dcom.sun.management.jmxremote.authenticate=${cond.jmx.auth}"/>
+      		<jvmarg value="-Djava.awt.headless=true"/>
+        	<jvmarg value="-Dfile.encoding=UTF-8"/>
+        	<jvmarg value="-DdosistiltekstJSlocation=${dosistiltekstJSlocation}"/>
+			<formatter type="plain"/>
+			<formatter type="xml"/>
+			<batchtest fork="yes" todir="${artifactsDir}/test">
+				<fileset dir="${test.dir}">
+					<include name="${test.includePattern}"/>
+				</fileset>
+			</batchtest>
+		</junit>
+		<mkdir dir="${junitHtmlReportDir}"/>
+			<junitreport todir="${junitHtmlReportDir}">
+			<fileset dir="${artifactsDir}/test">
+				<include name="**/TEST-*.xml"/>
+			</fileset>
+			<report format="frames" todir="${junitHtmlReportDir}" />
+		</junitreport>
+		<fail if="test.failed" message="There were test failures" />
+	</target>
+	
+	<target name="publish-internal" depends="init, resolve-build, local-revision,jar, war, publish-internal-do"/>
+</project>
