@@ -2,7 +2,7 @@ fmk-dosistiltekst-wrapper-rhino
 ==============
 fmk-dosistiltekst-wrapper-rhino udstiller et java API der indkapsler dosistiltekst javascript komponenten (se https://www.npmjs.com/package/fmk-dosis-til-tekst-ts ). Denne version understøtter java 6 og 7, der alle anvender den såkalde "Rhino" javascript fortolker, deraf komponent-navnet. (For java 8 henvises til fmk-dosistiltekst-wrapper-nashorn)
 Anvendelsen af fmk-dosistiltekst-wrapper-rhino forudsætter, at man også har adgang til fmk-dosistiltekst-wrapper jar'en.
-JS komponenten selv kan hentes vha. "npm i fmk-dosis-til-tekst-ts". Javascriptfilen dosistiltekst.js findes hefter i node_modules/fmk-dosis-til-tekst-ts/target folderen.
+JS komponenten selv kan hentes vha. "npm i fmk-dosis-til-tekst-ts". Javascriptfilen dosistiltekst.js findes herefter i node_modules/fmk-dosis-til-tekst-ts/target folderen.
 
 Før brug skal DosisTilTekstWrapper klassen initialiseres med en java FileStream indeholdende dosistiltekst.js filen, eksempelvis:
 ```java
@@ -40,7 +40,7 @@ DosageTranslationCombined combined = DosisTilTekstWrapper.convertCombined(dosage
 
 Eksempel på anvendelse:
 ```java
-import dk.medicinkortet.fmkdosistiltekstwrapper.DosisTilTekstWrapper.FMKVersion;
+import dk.medicinkortet.fmkdosistiltekstwrapper.FMKVersion;
 ...
 SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
 
