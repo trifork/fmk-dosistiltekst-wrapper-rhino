@@ -3,8 +3,8 @@
 	module's jar file -->
 <project name="fmk-dosistiltekst-wrapper-rhino" default="jar" basedir=".">
 
-	<property name="sourceversion" value="1.7"/>
-	<property name="targetversion" value="1.7"/>
+	<property name="sourceversion" value="1.6"/>
+	<property name="targetversion" value="1.6"/>
 		
 	<property file="build.properties" />
 	<property file="revision.properties" />
