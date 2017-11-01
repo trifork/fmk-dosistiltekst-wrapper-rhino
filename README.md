@@ -61,16 +61,5 @@ DosageProposalResult res = DosisTilTekstWrapper.getDosageProposalResult("{M+M+A+
 				FMKVersion.FMK146, 1);
 ```				
 
-
-### Build dependencies
-Flg. libraries er nødvendige, for at kunne anvende fmk-dosistiltekst-wrapper-rhino (i ivy-fil notation):
-```xml
-<dependencies>  
-	<dependency org="log4j" name="log4j" rev="1.2.9" transitive="false" />
-	<dependency org="com.fasterxml.jackson.core" name="jackson-databind" rev="2.6.3" />
-	<dependency org="trifork" name="fmk-dosistiltekst-wrapper" rev="20171030115050-b430" transitive="false"/>
-	<dependency org="de.christophkraemer" name="rhino-script-engine" rev="1.1.0"/>
-</dependencies>
-``` 
 ## Kun til udviklere af selve fmk-dosistiltekst-wrapper komponenten:
 Forudsætter fmk-dosis-til-tekst-ts er checket ud og bygget "parallelt" med dette projekt, således at ../fmk-dosis-til-tekst-ts/target/dosistiltekst.js er tilgængelig.
