@@ -169,5 +169,30 @@ public class DosageWrapperTest extends DosisTilTekstWrapperTestBase {
 				"   Doseringsforløb:\n"+
 				"   Bare tag rigeligt", combined.getCombinedTranslation().getLongText());
 	}
+	
+	@Test
+	public void testShortTextToLong() {
+		DosageWrapper dosage = DosageWrapper.makeDosage(StructuresWrapper.makeStructures(
+				UnitOrUnitsWrapper.makeUnit("stk"),
+				StructureWrapper.makeStructure(7, "en meget, meget, meget laaaang supplerende tekst",
+						DateOrDateTimeWrapper.makeDate("2012-06-08"), DateOrDateTimeWrapper.makeDate("2012-12-31"),
+						DayWrapper.makeDay(1, PlainDoseWrapper.makeDose(new BigDecimal(1.0))),
+						DayWrapper.makeDay(3, PlainDoseWrapper.makeDose(new BigDecimal(1.0))),
+						DayWrapper.makeDay(5, PlainDoseWrapper.makeDose(new BigDecimal(1.0))),
+						DayWrapper.makeDay(7, PlainDoseWrapper.makeDose(new BigDecimal(1.0))))));
+		Assert.assertEquals("WeeklyRepeatedConverterImpl", DosisTilTekstWrapper.getLongTextConverterClassName(dosage));
+		Assert.assertEquals(
+				"Doseringsforløbet starter fredag den 8. juni 2012, forløbet gentages hver uge, og ophører mandag den 31. december 2012.\n"
+						+ "Bemærk at doseringen har et komplekst forløb:\n" + "   Doseringsforløb:\n"
+						+ "   Tirsdag: 1 stk en meget, meget, meget laaaang supplerende tekst\n"
+						+ "   Torsdag: 1 stk en meget, meget, meget laaaang supplerende tekst\n"
+						+ "   Fredag: 1 stk en meget, meget, meget laaaang supplerende tekst\n"
+						+ "   Søndag: 1 stk en meget, meget, meget laaaang supplerende tekst",
+				DosisTilTekstWrapper.convertLongText(dosage));
+		Assert.assertEquals(
+				"1 stk tirsdag, torsdag, fredag og søndag hver uge en meget, meget, meget laaaang supplerende tekst",
+				DosisTilTekstWrapper.convertShortText(dosage, 300));
+		Assert.assertNull(DosisTilTekstWrapper.convertShortText(dosage));
+	}
 }
 
