@@ -133,7 +133,7 @@ public class DosageWrapperTest extends DosisTilTekstWrapperTestBase {
 		Assert.assertEquals(
 			"Doseringsforløbet starter lørdag den 1. januar 2011, gentages hver dag, og ophører fredag den 14. januar 2011:\n"+
 			"   Doseringsforløb:\n"+
-			"   1 stk morgen mod smerter + 1 stk middag mod smerter + 1 stk aften mod smerter + 1 stk før sengetid mod smerter",				
+			"   1 stk morgen mod smerter + 1 stk middag mod smerter + 1 stk aften mod smerter + 1 stk nat mod smerter",				
 			DosisTilTekstWrapper.convertLongText(dosage));
 	}
 	

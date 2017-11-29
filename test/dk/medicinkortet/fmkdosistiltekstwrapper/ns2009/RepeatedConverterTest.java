@@ -561,7 +561,7 @@ public class RepeatedConverterTest extends DosisTilTekstWrapperTestBase {
 
         Assert.assertEquals("Doseringsforløbet starter fredag den 7. februar 2014 kl. 07:19, forløbet gentages efter 42 dage:\n" +
                 "   Doseringsforløb:\n" +
-                "   Fredag den 7. februar 2014: 1 stk middag + 1 stk før sengetid", DosisTilTekstWrapper.convertLongText(dosage));
+                "   Fredag den 7. februar 2014: 1 stk middag + 1 stk nat", DosisTilTekstWrapper.convertLongText(dosage));
         Assert.assertNull(DosisTilTekstWrapper.convertShortText(dosage)); // does not have a short text translation
         Assert.assertEquals(
                 0.047619048,

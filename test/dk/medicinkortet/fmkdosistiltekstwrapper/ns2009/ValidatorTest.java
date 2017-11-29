@@ -52,10 +52,10 @@ public class ValidatorTest extends DosisTilTekstWrapperTestBase {
 					1, 
 					MorningDoseWrapper.makeDose(new BigDecimal(2)), 
 					EveningDoseWrapper.makeDose(new BigDecimal(0))))));
-		StructureWrapper s = dosage.getStructures().getStructures().first();
+		StructureWrapper s = dosage.getStructures().getStructures().get(0);
 		Assert.assertEquals(
 				1, 
-				s.getDays().first().getNumberOfDoses());
+				s.getDays().get(0).getNumberOfDoses());
 		Assert.assertEquals(
 				"Doseringsforløbet starter fredag den 13. april 2012 kl. 20:06 og gentages hver dag:\n"+
 				"   Doseringsforløb:\n"+
@@ -84,10 +84,10 @@ public class ValidatorTest extends DosisTilTekstWrapperTestBase {
 						1, 
 						PlainDoseWrapper.makeDose(new BigDecimal(2), true), 
 						PlainDoseWrapper.makeDose(new BigDecimal(0), true)))));
-		StructureWrapper s = dosage.getStructures().getStructures().first();
+		StructureWrapper s = dosage.getStructures().getStructures().get(0);
 		Assert.assertEquals(
 				1, 
-				s.getDays().first().getAccordingToNeedDoses().size());
+				s.getDays().get(0).getAccordingToNeedDoses().size());
 		Assert.assertEquals(
 				"Doseringsforløbet starter fredag den 13. april 2012 kl. 20:06 og gentages hver dag:\n"+
 				"   Doseringsforløb:\n"+

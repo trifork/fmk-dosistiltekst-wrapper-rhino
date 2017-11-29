@@ -101,7 +101,7 @@ public class DosageProposalXMLGeneratorTest extends DosisTilTekstWrapperTestBase
 			assertEquals("Doseringen indeholder flere perioder:\n\n" +
             "Doseringsforløbet starter fredag den 1. januar 2010, gentages hver dag, og ophører søndag den 31. januar 2010:\n" +
             "   Doseringsforløb:\n" +
-            "   1 tablet morgen tages med rigeligt vand + 2 tabletter middag tages med rigeligt vand + 3 tabletter aften tages med rigeligt vand + 4 tabletter før sengetid tages med rigeligt vand\n\n" +
+            "   1 tablet morgen tages med rigeligt vand + 2 tabletter middag tages med rigeligt vand + 3 tabletter aften tages med rigeligt vand + 4 tabletter nat tages med rigeligt vand\n\n" +
 
             "Doseringsforløbet starter mandag den 1. februar 2010, forløbet gentages hver 2. dag, og ophører søndag den 28. februar 2010.\n" +
             "Bemærk at doseringen varierer:\n" +
