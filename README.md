@@ -31,6 +31,7 @@ DosageWrapper dosage = DosageWrapper.makeDosage(
   
 String longText = DosisTilTekstWrapper.convertLongText(dosage);
 String shortText = DosisTilTekstWrapper.convertShortText(dosage);
+String mediumText = DosisTilTekstWrapper.convertShortText(dosage, 200);
 DailyDosis daily = DosisTilTekstWrapper.calculateDailyDosis(dosage);
 DosageType dosageType = DosisTilTekstWrapper.getDosageType(dosage);
 ```
