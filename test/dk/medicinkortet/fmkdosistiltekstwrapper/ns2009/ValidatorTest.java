@@ -52,7 +52,7 @@ public class ValidatorTest extends DosisTilTekstWrapperTestBase {
 					1, 
 					MorningDoseWrapper.makeDose(new BigDecimal(2)), 
 					EveningDoseWrapper.makeDose(new BigDecimal(0))))));
-		StructureWrapper s = dosage.getStructures().getStructures().get(0);
+		StructureWrapper s = dosage.getStructures().getStructures().iterator().next();
 		Assert.assertEquals(
 				1, 
 				s.getDays().get(0).getNumberOfDoses());
@@ -84,7 +84,7 @@ public class ValidatorTest extends DosisTilTekstWrapperTestBase {
 						1, 
 						PlainDoseWrapper.makeDose(new BigDecimal(2), true), 
 						PlainDoseWrapper.makeDose(new BigDecimal(0), true)))));
-		StructureWrapper s = dosage.getStructures().getStructures().get(0);
+		StructureWrapper s = dosage.getStructures().getStructures().iterator().next();
 		Assert.assertEquals(
 				1, 
 				s.getDays().get(0).getAccordingToNeedDoses().size());
