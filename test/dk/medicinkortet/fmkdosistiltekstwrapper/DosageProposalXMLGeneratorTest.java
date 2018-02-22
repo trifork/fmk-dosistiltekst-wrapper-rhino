@@ -28,6 +28,19 @@ public class DosageProposalXMLGeneratorTest extends DosisTilTekstWrapperTestBase
 		assertEquals("<m16:Dosage xsi:schemaLocation=\"http://www.dkma.dk/medicinecard/xml.schema/2015/06/01 ../../../2015/06/01/DosageForRequest.xsd\" xmlns:m16=\"http://www.dkma.dk/medicinecard/xml.schema/2015/06/01\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><m16:UnitTexts source=\"Doseringsforslag\"><m16:Singular>tablet</m16:Singular><m16:Plural>tabletter</m16:Plural></m16:UnitTexts><m16:StructuresAccordingToNeed><m16:Structure><m16:IterationInterval>1</m16:IterationInterval><m16:StartDate>2017-05-17</m16:StartDate><m16:EndDate>2017-06-01</m16:EndDate><m16:SupplementaryText>, tages med rigeligt vand</m16:SupplementaryText><m16:Day><m16:Number>1</m16:Number><m16:Dose><m16:Quantity>1</m16:Quantity></m16:Dose></m16:Day></m16:Structure></m16:StructuresAccordingToNeed></m16:Dosage>", res.getXmlSnippet());
 	}
 	
+
+	@Test
+	public void testBasicWithLongerShortText() throws ParseException {
+		DosageProposalResult res = DosisTilTekstWrapper.getDosageProposalResult("PN", "1", "1", "tablet", "tabletter", ", tages med rigeligt vand OG SÅ EN LAANG SUPPLERENDE TEKST SÅ DEN KORTE TEKST BLIVER LÆNGERE END 70 KARAKTERER", Arrays.asList(SIMPLE_DATE_FORMAT.parse("2017-05-17")), Arrays.asList(SIMPLE_DATE_FORMAT.parse("2017-06-01")), FMKVersion.FMK146, 1, 10000);
+		assertNotNull(res);
+		assertNotNull(res.getLongText());
+		assertEquals("Doseringsforløbet starter onsdag den 17. maj 2017, gentages hver dag, og ophører torsdag den 1. juni 2017:\n" +
+				"   Doseringsforløb:\n" + 
+				"   1 tablet efter behov højst 1 gang daglig, tages med rigeligt vand OG SÅ EN LAANG SUPPLERENDE TEKST SÅ DEN KORTE TEKST BLIVER LÆNGERE END 70 KARAKTERER", res.getLongText());
+		assertEquals("1 tablet efter behov, højst 1 gang daglig, tages med rigeligt vand OG SÅ EN LAANG SUPPLERENDE TEKST SÅ DEN KORTE TEKST BLIVER LÆNGERE END 70 KARAKTERER", res.getShortText());
+		assertEquals("<m16:Dosage xsi:schemaLocation=\"http://www.dkma.dk/medicinecard/xml.schema/2015/06/01 ../../../2015/06/01/DosageForRequest.xsd\" xmlns:m16=\"http://www.dkma.dk/medicinecard/xml.schema/2015/06/01\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><m16:UnitTexts source=\"Doseringsforslag\"><m16:Singular>tablet</m16:Singular><m16:Plural>tabletter</m16:Plural></m16:UnitTexts><m16:StructuresAccordingToNeed><m16:Structure><m16:IterationInterval>1</m16:IterationInterval><m16:StartDate>2017-05-17</m16:StartDate><m16:EndDate>2017-06-01</m16:EndDate><m16:SupplementaryText>, tages med rigeligt vand OG SÅ EN LAANG SUPPLERENDE TEKST SÅ DEN KORTE TEKST BLIVER LÆNGERE END 70 KARAKTERER</m16:SupplementaryText><m16:Day><m16:Number>1</m16:Number><m16:Dose><m16:Quantity>1</m16:Quantity></m16:Dose></m16:Day></m16:Structure></m16:StructuresAccordingToNeed></m16:Dosage>", res.getXmlSnippet());
+	}
+	
 	@Test
 	public void testMultiPeriode() throws ParseException {
 		

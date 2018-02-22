@@ -85,6 +85,10 @@ public class DosisTilTekstWrapper {
 	private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
 
 	public static DosageProposalResult getDosageProposalResult(String type, String iteration, String mapping, String unitTextSingular, String unitTextPlural, String supplementaryText, List<Date> beginDates, List<Date> endDates, FMKVersion version, int dosageProposalVersion) {
+		return getDosageProposalResult(type, iteration, mapping, unitTextSingular, unitTextPlural, supplementaryText, beginDates, endDates, version, dosageProposalVersion, null);
+	}
+	
+	public static DosageProposalResult getDosageProposalResult(String type, String iteration, String mapping, String unitTextSingular, String unitTextPlural, String supplementaryText, List<Date> beginDates, List<Date> endDates, FMKVersion version, int dosageProposalVersion, Integer shortTextMaxLength) {
 		if(engine == null) {
 			throw new RuntimeException("DosisTilTekstWrapper not initialized - call initialize() method before invoking any of the methods");
 		}
@@ -105,8 +109,12 @@ public class DosisTilTekstWrapper {
 			NativeArray beginDateArray = new NativeArray(nativeBeginDates.toArray());
 			NativeArray endDateArray = new NativeArray(nativeEndDates.toArray());
 			 
-			    
-			res = (Map<String, Object>)invocable.invokeMethod(dosageProposalXMLGeneratorObj, "generateXMLSnippet", type, iteration, mapping, unitTextSingular, unitTextPlural, supplementaryText, beginDateArray, endDateArray, version.toString(), dosageProposalVersion);
+			if(shortTextMaxLength != null) {
+				res = (Map<String, Object>)invocable.invokeMethod(dosageProposalXMLGeneratorObj, "generateXMLSnippet", type, iteration, mapping, unitTextSingular, unitTextPlural, supplementaryText, beginDateArray, endDateArray, version.toString(), dosageProposalVersion, shortTextMaxLength.intValue());
+			}
+			else {
+				res = (Map<String, Object>)invocable.invokeMethod(dosageProposalXMLGeneratorObj, "generateXMLSnippet", type, iteration, mapping, unitTextSingular, unitTextPlural, supplementaryText, beginDateArray, endDateArray, version.toString(), dosageProposalVersion);
+			}
 		} catch (ScriptException e) {
 			e.printStackTrace();
 			throw new RuntimeException("ScriptException in DosisTilTekstWrapper.getDosageProposalResult()", e);
