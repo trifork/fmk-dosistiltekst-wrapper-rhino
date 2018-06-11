@@ -99,13 +99,14 @@ public class DosisTilTekstWrapper {
 			Scriptable scope = cx.initStandardObjects();
 			 
 			ArrayList<Scriptable> nativeBeginDates = new ArrayList<Scriptable>(beginDates.size());
-			ArrayList<Scriptable> nativeEndDates = new ArrayList<Scriptable>(endDates.size());
+			ArrayList<Object> nativeEndDates = new ArrayList<Object>(endDates.size());
 			 
 			for(int i = 0; i < beginDates.size(); i++) {
 				nativeBeginDates.add(cx.newObject(scope, "Date", new Object[] { new Double(beginDates.get(i).getTime()) }));
-				nativeEndDates.add(cx.newObject(scope, "Date", new Object[] { new Double(endDates.get(i).getTime()) }));
+				nativeEndDates.add(endDates.get(i) != null ? cx.newObject(scope, "Date", new Object[] {  new Double(endDates.get(i).getTime()) })  : org.mozilla.javascript.Undefined.instance);
 			}
 			 
+			
 			NativeArray beginDateArray = new NativeArray(nativeBeginDates.toArray());
 			NativeArray endDateArray = new NativeArray(nativeEndDates.toArray());
 			 
