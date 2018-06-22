@@ -169,9 +169,9 @@ public class DosisTilTekstWrapper {
 		LinkedList<DosageTranslation> translations = new LinkedList<DosageTranslation>(); 
 		for(int i = 0; i < periodTexts.getLength(); i++) {
 			NativeArray periodText = (NativeArray)periodTexts.get(i);
-			translations.add(new DosageTranslation(periodText.get(0).toString(), periodText.get(1).toString(), getDailyDosisFromJS((Map<String, Object>)periodText.get(2))));
+			translations.add(new DosageTranslation(periodText.get(0) != null ? periodText.get(0).toString() : null, periodText.get(1).toString(), getDailyDosisFromJS((Map<String, Object>)periodText.get(2))));
 		}
-		return new DosageTranslationCombined(new DosageTranslation(combinedShortText.toString(), combinedLongText.toString(), combinedDD), translations); 
+		return new DosageTranslationCombined(new DosageTranslation(combinedShortText != null ? combinedShortText.toString() : null, combinedLongText.toString(), combinedDD), translations); 
 	}
 	
 	public static String convertLongText(DosageWrapper dosage) {

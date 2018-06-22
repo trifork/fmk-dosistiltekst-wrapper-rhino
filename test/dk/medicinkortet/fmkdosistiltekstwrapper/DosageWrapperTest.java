@@ -74,6 +74,40 @@ public class DosageWrapperTest extends DosisTilTekstWrapperTestBase {
 			"   4 stk 2 gange daglig mod smerter", 
 			DosisTilTekstWrapper.convertLongText(dosage));
 	}
+	
+	// FMK-4603
+	@Test
+	public void testCombinedMedForLangKortTekst() throws Exception {
+		DosageWrapper dosage = 
+			DosageWrapper.makeDosage(
+				StructuresWrapper.makeStructures(
+					UnitOrUnitsWrapper.makeUnit("stk"),
+					StructureWrapper.makeStructure(
+						1, "mod smerter og så en meeeeeeget lang supplerende tekst der får længden på den korte tekst til at blive længere end max-længden", 
+						DateOrDateTimeWrapper.makeDate("2011-01-01"), null,
+						DayWrapper.makeDay(1,
+							PlainDoseWrapper.makeDose(new BigDecimal(4)), 
+							PlainDoseWrapper.makeDose(new BigDecimal(4))))));
+		
+	
+		
+		DosageTranslationCombined combined = DosisTilTekstWrapper.convertCombined(dosage); 
+		Assert.assertNull(combined.getCombinedTranslation().getShortText());
+		Assert.assertNull(combined.getPeriodTranslations().get(0).getShortText());
+		Assert.assertEquals(
+				"Doseringsforløbet starter lørdag den 1. januar 2011 og gentages hver dag:\n"+
+				"   Doseringsforløb:\n"+
+				"   4 stk 2 gange daglig mod smerter og så en meeeeeeget lang supplerende tekst der får længden på den korte tekst til at blive længere end max-længden", combined.getCombinedTranslation().getLongText());
+		
+		String shortText = DosisTilTekstWrapper.convertShortText(dosage);
+		Assert.assertNull(shortText);
+		
+		Assert.assertEquals(
+			"Doseringsforløbet starter lørdag den 1. januar 2011 og gentages hver dag:\n"+
+			"   Doseringsforløb:\n"+
+			"   4 stk 2 gange daglig mod smerter og så en meeeeeeget lang supplerende tekst der får længden på den korte tekst til at blive længere end max-længden", 
+			DosisTilTekstWrapper.convertLongText(dosage));
+	}
 
 	@Test
 	public void testDaglig4StkModSmerterPlus4StkEfterBehovModSmerter() throws Exception {
