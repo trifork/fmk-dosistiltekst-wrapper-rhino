@@ -73,11 +73,11 @@ public class MorningNoonEveningNightInNDaysConverterTest extends DosisTilTekstWr
 		Assert.assertEquals(
 				"Doseringsforløbet starter lørdag den 1. januar 2011, og ophører onsdag den 5. januar 2011:\n"+
 				"   Doseringsforløb:\n"+
-				"   Lørdag den 1. januar 2011: 1 tablet morgen ved måltid\n"+
-				"   Søndag den 2. januar 2011: 1 tablet morgen ved måltid\n"+
-				"   Mandag den 3. januar 2011: 1 tablet morgen ved måltid\n"+
-				"   Tirsdag den 4. januar 2011: 1 tablet morgen ved måltid\n"+
-				"   Onsdag den 5. januar 2011: 1 tablet morgen ved måltid",
+				"   Lørdag den 1. januar 2011: 1 tablet morgen\n"+
+				"   Søndag den 2. januar 2011: 1 tablet morgen\n"+
+				"   Mandag den 3. januar 2011: 1 tablet morgen\n"+
+				"   Tirsdag den 4. januar 2011: 1 tablet morgen\n"+
+				"   Onsdag den 5. januar 2011: 1 tablet morgen.\n   Bemærk: ved måltid",
 				DosisTilTekstWrapper.convertLongText(dosage));
 		Assert.assertEquals(
 				"MorningNoonEveningNightInNDaysConverterImpl", 
@@ -120,11 +120,11 @@ public class MorningNoonEveningNightInNDaysConverterTest extends DosisTilTekstWr
 		Assert.assertEquals(
 				"Doseringsforløbet starter lørdag den 1. januar 2011, og ophører onsdag den 5. januar 2011:\n"+
 				"   Doseringsforløb:\n"+
-				"   Lørdag den 1. januar 2011: 1 tablet morgen efter behov højst 1 gang ved måltid\n"+
-				"   Søndag den 2. januar 2011: 1 tablet morgen efter behov højst 1 gang ved måltid\n"+
-				"   Mandag den 3. januar 2011: 1 tablet morgen efter behov højst 1 gang ved måltid\n"+
-				"   Tirsdag den 4. januar 2011: 1 tablet morgen efter behov højst 1 gang ved måltid\n"+
-				"   Onsdag den 5. januar 2011: 1 tablet morgen efter behov højst 1 gang ved måltid",
+				"   Lørdag den 1. januar 2011: 1 tablet morgen efter behov højst 1 gang\n"+
+				"   Søndag den 2. januar 2011: 1 tablet morgen efter behov højst 1 gang\n"+
+				"   Mandag den 3. januar 2011: 1 tablet morgen efter behov højst 1 gang\n"+
+				"   Tirsdag den 4. januar 2011: 1 tablet morgen efter behov højst 1 gang\n"+
+				"   Onsdag den 5. januar 2011: 1 tablet morgen efter behov højst 1 gang.\n   Bemærk: ved måltid",
 				DosisTilTekstWrapper.convertLongText(dosage));
 		Assert.assertEquals(
 				"MorningNoonEveningNightInNDaysConverterImpl", 

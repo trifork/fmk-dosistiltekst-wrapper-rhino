@@ -70,10 +70,10 @@ public class WeeklyRepeatedConverterTest extends DosisTilTekstWrapperTestBase {
 				"Doseringsforløbet starter fredag den 8. juni 2012, forløbet gentages hver uge, og ophører mandag den 31. december 2012.\n"+
 				"Bemærk at doseringen har et komplekst forløb:\n"+
 				"   Doseringsforløb:\n"+
-				"   Tirsdag: 1 stk 2 gange ved måltid\n"+
-				"   Torsdag: 1 stk 2 gange ved måltid\n"+
-				"   Fredag: 1 stk 2 gange ved måltid\n"+
-				"   Søndag: 1 stk 2 gange ved måltid",
+				"   Tirsdag: 1 stk 2 gange\n"+
+				"   Torsdag: 1 stk 2 gange\n"+
+				"   Fredag: 1 stk 2 gange\n"+
+				"   Søndag: 1 stk 2 gange.\n   Bemærk: ved måltid",
 				DosisTilTekstWrapper.convertLongText(dosage));
 //		Assert.assertEquals(
 //				dk.medicinkortet.fmkdosistiltekstwrapper.shorttextconverterimpl."WeeklyRepeatedConverterImpl", 
@@ -112,10 +112,10 @@ public class WeeklyRepeatedConverterTest extends DosisTilTekstWrapperTestBase {
 				"Doseringsforløbet starter fredag den 8. juni 2012, forløbet gentages hver uge, og ophører mandag den 31. december 2012.\n"+
 				"Bemærk at doseringen har et komplekst forløb:\n"+
 				"   Doseringsforløb:\n"+
-				"   Tirsdag: 1 stk ved måltid\n"+
-				"   Torsdag: 1 stk ved måltid\n"+
-				"   Fredag: 1 stk ved måltid\n"+
-				"   Søndag: 1 stk ved måltid",
+				"   Tirsdag: 1 stk\n"+
+				"   Torsdag: 1 stk\n"+
+				"   Fredag: 1 stk\n"+
+				"   Søndag: 1 stk.\n   Bemærk: ved måltid",
 				DosisTilTekstWrapper.convertLongText(dosage));
 		Assert.assertEquals(
 				"WeeklyRepeatedConverterImpl", 

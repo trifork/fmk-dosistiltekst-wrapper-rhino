@@ -29,13 +29,13 @@ public class NumberOfWholeWeeksConverterTest extends DosisTilTekstWrapperTestBas
 
         Assert.assertEquals("Doseringsforløbet starter fredag den 7. februar 2014 kl. 07:19, forløbet gentages efter 14 dage:\n" +
         		 "   Doseringsforløb:\n" +
-                 "   Fredag den 7. februar 2014: 1 stk middag ved måltid\n" +
-                 "   Lørdag den 8. februar 2014: 1 stk middag ved måltid\n" +
-                 "   Søndag den 9. februar 2014: 1 stk middag ved måltid\n" +
-                 "   Mandag den 10. februar 2014: 1 stk middag ved måltid\n" +
-                 "   Tirsdag den 11. februar 2014: 1 stk middag ved måltid\n" +
-                 "   Onsdag den 12. februar 2014: 1 stk middag ved måltid\n" +
-                 "   Torsdag den 13. februar 2014: 1 stk middag ved måltid", DosisTilTekstWrapper.convertLongText(dosage));
+                 "   Fredag den 7. februar 2014: 1 stk middag\n" +
+                 "   Lørdag den 8. februar 2014: 1 stk middag\n" +
+                 "   Søndag den 9. februar 2014: 1 stk middag\n" +
+                 "   Mandag den 10. februar 2014: 1 stk middag\n" +
+                 "   Tirsdag den 11. februar 2014: 1 stk middag\n" +
+                 "   Onsdag den 12. februar 2014: 1 stk middag\n" +
+                 "   Torsdag den 13. februar 2014: 1 stk middag.\n   Bemærk: ved måltid", DosisTilTekstWrapper.convertLongText(dosage));
         Assert.assertEquals("1 stk middag daglig ved måltid i en uge, herefter en uges pause", DosisTilTekstWrapper.convertShortText(dosage));
         Assert.assertEquals(
                 0.5,

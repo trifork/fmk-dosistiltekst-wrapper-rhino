@@ -55,7 +55,7 @@ public class SimpleLimitedAccordingToNeedConverterTest extends DosisTilTekstWrap
 		Assert.assertEquals(
 				"Doseringsforløbet starter lørdag den 1. januar 2011 og gentages hver dag:\n"+
 				"   Doseringsforløb:\n"+
-				"   1 pust efter behov højst 3 gange daglig ved anfald", // TOOD order
+				"   1 pust efter behov højst 3 gange daglig.\n   Bemærk: ved anfald", // TOOD order
 				DosisTilTekstWrapper.convertLongText(dosage));
 		Assert.assertEquals(
 				"SimpleLimitedAccordingToNeedConverterImpl", 
@@ -80,7 +80,7 @@ public class SimpleLimitedAccordingToNeedConverterTest extends DosisTilTekstWrap
 		Assert.assertEquals(
 				"Doseringsforløbet starter lørdag den 1. januar 2011, gentages hver dag, og ophører tirsdag den 11. januar 2011:\n"+
 				"   Doseringsforløb:\n"+
-				"   1 pust efter behov højst 1 gang daglig ved anfald", 
+				"   1 pust efter behov højst 1 gang daglig.\n   Bemærk: ved anfald", 
 				DosisTilTekstWrapper.convertLongText(dosage));
 		Assert.assertEquals(
 				"SimpleLimitedAccordingToNeedConverterImpl", 

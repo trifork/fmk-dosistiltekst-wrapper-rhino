@@ -24,7 +24,7 @@ public class RepeatedEyeOrEarConverterTest extends DosisTilTekstWrapperTestBase 
 			StructuresWrapper.makeStructures(
 				UnitOrUnitsWrapper.makeUnits("dråbe", "dråber"), 
 				StructureWrapper.makeStructure(
-					1, ", 1 i hvert øje", DateOrDateTimeWrapper.makeDate("2011-01-01"), DateOrDateTimeWrapper.makeDate("2011-01-30"), 
+					1, "1 i hvert øje", DateOrDateTimeWrapper.makeDate("2011-01-01"), DateOrDateTimeWrapper.makeDate("2011-01-30"), 
 					DayWrapper.makeDay(
 						1, 
 						PlainDoseWrapper.makeDose(new BigDecimal(2)), 
@@ -35,7 +35,7 @@ public class RepeatedEyeOrEarConverterTest extends DosisTilTekstWrapperTestBase 
 		Assert.assertEquals(
 			"Doseringsforløbet starter lørdag den 1. januar 2011, gentages hver dag, og ophører søndag den 30. januar 2011:\n"+
 			"   Doseringsforløb:\n"+
-			"   2 dråber 2 gange daglig, 1 i hvert øje",
+			"   2 dråber 2 gange daglig.\n   Bemærk: 1 i hvert øje",
 			DosisTilTekstWrapper.convertLongText(dosage));
 		Assert.assertEquals(
 			"RepeatedEyeOrEarConverterImpl", 

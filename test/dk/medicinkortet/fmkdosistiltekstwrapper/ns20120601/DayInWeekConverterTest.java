@@ -46,8 +46,8 @@ public class DayInWeekConverterTest extends DosisTilTekstWrapperTestBase {
 		Assert.assertEquals(
 				"Doseringsforløbet starter lørdag den 1. januar 2011, forløbet gentages efter 14 dage, og ophører søndag den 30. januar 2011.\nBemærk at doseringen har et komplekst forløb:\n"+
 				"   Doseringsforløb:\n"+
-				"   Mandag den 3. januar 2011: 1 tablet morgen ved måltid\n"+
-				"   Mandag den 10. januar 2011: 1 tablet morgen ved måltid",
+				"   Mandag den 3. januar 2011: 1 tablet morgen\n"+
+				"   Mandag den 10. januar 2011: 1 tablet morgen.\n   Bemærk: ved måltid",
 				DosisTilTekstWrapper.convertLongText(dosage));
 	}
 	
@@ -80,8 +80,8 @@ public class DayInWeekConverterTest extends DosisTilTekstWrapperTestBase {
 			Assert.assertEquals(
 					"Doseringsforløbet starter lørdag den 1. januar 2011, forløbet gentages efter 14 dage, og ophører søndag den 30. januar 2011.\nBemærk at doseringen har et komplekst forløb:\n"+
 					"   Doseringsforløb:\n"+
-					"   Mandag den 3. januar 2011: 1 tablet morgen ved måltid\n"+
-					"   Mandag den 10. januar 2011: 1 tablet morgen ved måltid",
+					"   Mandag den 3. januar 2011: 1 tablet morgen\n"+
+					"   Mandag den 10. januar 2011: 1 tablet morgen.\n   Bemærk: ved måltid",
 					DosisTilTekstWrapper.convertLongText(dosage));
 		}
 

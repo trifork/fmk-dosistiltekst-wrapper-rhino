@@ -78,7 +78,7 @@ public class SimpleAccordingToNeedConverterTest extends DosisTilTekstWrapperTest
 		Assert.assertEquals(
 				"Doseringsforløbet starter lørdag den 1. januar 2011:\n"+
 				"   Doseringsforløb:\n"+
-				"   Efter behov: 2 stk efter behov ved smerter",
+				"   Efter behov: 2 stk efter behov.\n   Bemærk: ved smerter",
 				DosisTilTekstWrapper.convertLongText(dosage));
 		Assert.assertEquals(
 				"SimpleAccordingToNeedConverterImpl", 
