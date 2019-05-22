@@ -65,7 +65,7 @@ public class MorningNoonEveningNightConverterTest extends DosisTilTekstWrapperTe
 			"MorningNoonEveningNightConverterImpl", 
 			DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-			"1 stk morgen, 2 stk middag, 3 stk aften og 4 stk nat !", 
+			"1 stk morgen, 2 stk middag, 3 stk aften og 4 stk nat.\n   Bemærk: !", 
 			DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertEquals(
 			10.0, 

@@ -72,12 +72,6 @@ public class WeeklyMorningNoonEveningNightConverterTest extends DosisTilTekstWra
 				 "   Søndag: 1 stk morgen + 1 stk aften.\n   Bemærk: ved måltid",
 				DosisTilTekstWrapper.convertLongText(dosage));
 		Assert.assertEquals(
-				"WeeklyMorningNoonEveningNightConverterImpl",
-				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
-		Assert.assertEquals(
-				"1 stk morgen og aften torsdag, fredag og søndag hver uge.\n   Bemærk: ved måltid",
-				DosisTilTekstWrapper.convertShortText(dosage));
-		Assert.assertEquals(
 				6/7., 
 				DosisTilTekstWrapper.calculateDailyDosis(dosage).getValue().doubleValue(), 
 				0.000000001); 							

@@ -41,7 +41,7 @@ public class RepeatedEyeOrEarConverterTest extends DosisTilTekstWrapperTestBase 
 			"RepeatedEyeOrEarConverterImpl", 
 			DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-			"1 dråbe 2 gange daglig i begge øjne", 
+			"1 dråbe 2 gange daglig.\n   Bemærk: i begge øjne", 
 			DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertEquals(
 				4.0, 
