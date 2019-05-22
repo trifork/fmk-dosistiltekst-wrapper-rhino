@@ -75,7 +75,7 @@ public class DailyRepeatedConverterTest extends DosisTilTekstWrapperTestBase {
 				"ParacetamolConverterImpl", 
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-				"1 tablet 2-3 gange daglig ved måltid", 
+				"1 tablet 2-3 gange daglig.\n   Bemærk: ved måltid", 
 				DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertNull(DosisTilTekstWrapper.calculateDailyDosis(dosage).getValue());
 		Assert.assertEquals(DosageType.Combined, DosisTilTekstWrapper.getDosageType(dosage));
@@ -107,7 +107,7 @@ public class DailyRepeatedConverterTest extends DosisTilTekstWrapperTestBase {
 				"ParacetamolConverterImpl", 
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-				"1 tablet 2-3 gange daglig ved måltid", 
+				"1 tablet 2-3 gange daglig.\n   Bemærk: ved måltid", 
 				DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertNull(DosisTilTekstWrapper.calculateDailyDosis(dosage).getValue());
 		Assert.assertEquals(DosageType.Combined, DosisTilTekstWrapper.getDosageType(dosage));

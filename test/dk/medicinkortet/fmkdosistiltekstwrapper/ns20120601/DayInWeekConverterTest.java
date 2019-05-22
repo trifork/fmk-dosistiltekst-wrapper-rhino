@@ -37,7 +37,7 @@ public class DayInWeekConverterTest extends DosisTilTekstWrapperTestBase {
 				"DayInWeekConverterImpl", 
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-				"1 tablet morgen daglig mandag ved måltid", 
+				"1 tablet morgen daglig mandag.\n   Bemærk: ved måltid", 
 				DosisTilTekstWrapper.convertShortText(dosage));
 		
 		Assert.assertEquals(
@@ -71,7 +71,7 @@ public class DayInWeekConverterTest extends DosisTilTekstWrapperTestBase {
 					"DayInWeekConverterImpl", 
 					DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 			Assert.assertEquals(
-					"1 tablet morgen daglig mandag ved måltid", 
+					"1 tablet morgen daglig mandag.\n   Bemærk: ved måltid", 
 					DosisTilTekstWrapper.convertShortText(dosage));
 			
 			Assert.assertEquals(

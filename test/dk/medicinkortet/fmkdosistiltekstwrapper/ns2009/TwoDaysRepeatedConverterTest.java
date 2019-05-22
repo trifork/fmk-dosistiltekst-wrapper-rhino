@@ -63,7 +63,7 @@ public class TwoDaysRepeatedConverterTest extends DosisTilTekstWrapperTestBase {
 				"RepeatedConverterImpl", 
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-				"1 stk 2 gange samme dag hver 2. dag ved måltid", 
+				"1 stk 2 gange samme dag hver 2. dag.\n   Bemærk: ved måltid", 
 				DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertEquals(
 				1.0, 
@@ -95,7 +95,7 @@ public class TwoDaysRepeatedConverterTest extends DosisTilTekstWrapperTestBase {
 				"RepeatedConverterImpl", 
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-				"1 stk 2 gange samme dag hver 2. dag ved måltid", 
+				"1 stk 2 gange samme dag hver 2. dag.\n   Bemærk: ved måltid", 
 				DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertEquals(
 				1.0, 

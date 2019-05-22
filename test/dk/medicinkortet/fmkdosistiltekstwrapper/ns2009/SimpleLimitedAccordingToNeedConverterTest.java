@@ -61,7 +61,7 @@ public class SimpleLimitedAccordingToNeedConverterTest extends DosisTilTekstWrap
 				"SimpleLimitedAccordingToNeedConverterImpl", 
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-				"1 pust efter behov, højst 3 gange daglig ved anfald", 
+				"1 pust efter behov, højst 3 gange daglig.\n   Bemærk: ved anfald", 
 				DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertTrue(DosisTilTekstWrapper.calculateDailyDosis(dosage).isNone()); 
 		Assert.assertEquals(DosageType.AccordingToNeed, DosisTilTekstWrapper.getDosageType(dosage));				
@@ -86,7 +86,7 @@ public class SimpleLimitedAccordingToNeedConverterTest extends DosisTilTekstWrap
 				"SimpleLimitedAccordingToNeedConverterImpl", 
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-				"1 pust efter behov, højst 1 gang daglig ved anfald", 
+				"1 pust efter behov, højst 1 gang daglig.\n   Bemærk: ved anfald", 
 				DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertTrue(DosisTilTekstWrapper.calculateDailyDosis(dosage).isNone()); 
 		Assert.assertEquals(DosageType.AccordingToNeed, DosisTilTekstWrapper.getDosageType(dosage));				

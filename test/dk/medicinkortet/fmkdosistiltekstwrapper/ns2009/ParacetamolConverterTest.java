@@ -62,7 +62,7 @@ public class ParacetamolConverterTest extends DosisTilTekstWrapperTestBase  {
 			"ParacetamolConverterImpl", 
 			DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-			"1-2 stk 3-4 gange daglig ved smerter", 
+			"1-2 stk 3-4 gange daglig.\n   Bemærk: ved smerter", 
 			DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertTrue(DosisTilTekstWrapper.calculateDailyDosis(dosage).isNone());
 		Assert.assertEquals(DosageType.Combined, DosisTilTekstWrapper.getDosageType(dosage));

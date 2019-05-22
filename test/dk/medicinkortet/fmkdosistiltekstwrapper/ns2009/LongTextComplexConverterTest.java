@@ -412,7 +412,7 @@ public class LongTextComplexConverterTest extends DosisTilTekstWrapperTestBase {
 				"SimpleAccordingToNeedConverterImpl", 
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-				"1-2 sug efter behov ved anstrengelse", 
+				"1-2 sug efter behov.\n   Bemærk: ved anstrengelse", 
 				DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertNull(DosisTilTekstWrapper.calculateDailyDosis(dosage).getValue());
 		Assert.assertEquals(DosageType.AccordingToNeed, DosisTilTekstWrapper.getDosageType(dosage));		
@@ -439,7 +439,7 @@ public class LongTextComplexConverterTest extends DosisTilTekstWrapperTestBase {
 				"SimpleLimitedAccordingToNeedConverterImpl", 
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-				"1-2 tabletter efter behov, højst 3 gange daglig ved smerter", 
+				"1-2 tabletter efter behov, højst 3 gange daglig.\n   Bemærk: ved smerter", 
 				DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertNull(DosisTilTekstWrapper.calculateDailyDosis(dosage).getValue());
 		Assert.assertEquals(DosageType.AccordingToNeed, DosisTilTekstWrapper.getDosageType(dosage));		

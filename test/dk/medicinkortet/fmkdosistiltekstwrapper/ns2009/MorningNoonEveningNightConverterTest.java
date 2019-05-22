@@ -96,7 +96,7 @@ public class MorningNoonEveningNightConverterTest extends DosisTilTekstWrapperTe
 			"MorningNoonEveningNightConverterImpl", 
 			DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-			"2 stk morgen, middag, aften og nat ved måltid", 
+			"2 stk morgen, middag, aften og nat.\n   Bemærk: ved måltid", 
 			DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertEquals(
 				8.0, 
@@ -126,7 +126,7 @@ public class MorningNoonEveningNightConverterTest extends DosisTilTekstWrapperTe
 			"MorningNoonEveningNightConverterImpl", 
 			DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-			"2 stk middag, 3 stk aften og 4 stk nat ved måltid", 
+			"2 stk middag, 3 stk aften og 4 stk nat.\n   Bemærk: ved måltid", 
 			DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertEquals(
 				9.0, 
@@ -156,7 +156,7 @@ public class MorningNoonEveningNightConverterTest extends DosisTilTekstWrapperTe
 				"MorningNoonEveningNightConverterImpl", 
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-			"1 stk morgen, 2 stk middag og 3 stk aften ved måltid", 
+			"1 stk morgen, 2 stk middag og 3 stk aften.\n   Bemærk: ved måltid", 
 			DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertEquals(
 				6.0, 
@@ -185,7 +185,7 @@ public class MorningNoonEveningNightConverterTest extends DosisTilTekstWrapperTe
 				"MorningNoonEveningNightConverterImpl", 
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-			"0-1 stk morgen og 2-3 stk middag ved måltid", 
+			"0-1 stk morgen og 2-3 stk middag.\n   Bemærk: ved måltid", 
 			DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertEquals(
 				2, 
@@ -214,7 +214,7 @@ public class MorningNoonEveningNightConverterTest extends DosisTilTekstWrapperTe
 				"MorningNoonEveningNightConverterImpl", 
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-			"2 stk nat ved måltid", 
+			"2 stk nat.\n   Bemærk: ved måltid", 
 			DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertEquals(
 				2.0, 

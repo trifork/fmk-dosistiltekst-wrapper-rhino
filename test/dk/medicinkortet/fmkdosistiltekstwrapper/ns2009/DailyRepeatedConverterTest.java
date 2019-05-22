@@ -55,7 +55,7 @@ public class DailyRepeatedConverterTest extends DosisTilTekstWrapperTestBase {
 						PlainDoseWrapper.makeDose(new BigDecimal(1), true)))));			
 		
 		Assert.assertEquals(
-				"1 stk 2-3 gange daglig ved måltid", 
+				"1 stk 2-3 gange daglig.\n   Bemærk: ved måltid", 
 				DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertEquals(
 				"DailyRepeatedConverterImpl", 

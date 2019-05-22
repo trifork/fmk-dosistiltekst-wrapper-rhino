@@ -71,7 +71,7 @@ public class MorningNoonEveningNightConverterTest extends DosisTilTekstWrapperTe
 			"MorningNoonEveningNightConverterImpl", 
 			DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-			"1 tablet morgen og 2 tabletter aften ved måltid", 
+			"1 tablet morgen og 2 tabletter aften.\n   Bemærk: ved måltid", 
 			DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertEquals(
 				3.0, 
@@ -103,7 +103,7 @@ public class MorningNoonEveningNightConverterTest extends DosisTilTekstWrapperTe
 			"MorningNoonEveningNightConverterImpl", 
 			DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-			"2 tabletter morgen og aften ved måltid", 
+			"2 tabletter morgen og aften.\n   Bemærk: ved måltid", 
 			DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertEquals(
 				4.0, 
@@ -165,7 +165,7 @@ public class MorningNoonEveningNightConverterTest extends DosisTilTekstWrapperTe
 			"MorningNoonEveningNightConverterImpl", 
 			DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-			"1 mg morgen efter behov og 2 mg aften efter behov ved måltid", 
+			"1 mg morgen efter behov og 2 mg aften efter behov.\n   Bemærk: ved måltid", 
 			DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertNull(DosisTilTekstWrapper.calculateDailyDosis(dosage).getValue()); 			
 		Assert.assertEquals(DosageType.AccordingToNeed, DosisTilTekstWrapper.getDosageType(dosage));		
