@@ -86,7 +86,7 @@ public class LongTextComplexConverterTest extends DosisTilTekstWrapperTestBase {
 				"   Doseringsforløb:\n"+
 				"   Efter behov: 1 tablet morgen efter behov", 
 				DosisTilTekstWrapper.convertLongText(dosage));
-		Assert.assertEquals("1 tablet morgen efter behov", DosisTilTekstWrapper.convertShortText(dosage));
+		Assert.assertEquals("1 tablet morgen efter behov (gentages ikke)", DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertNull(DosisTilTekstWrapper.calculateDailyDosis(dosage).getValue());
 		Assert.assertEquals(DosageType.AccordingToNeed, DosisTilTekstWrapper.getDosageType(dosage));		
 	}

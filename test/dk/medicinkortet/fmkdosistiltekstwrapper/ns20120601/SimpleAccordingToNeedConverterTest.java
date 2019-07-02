@@ -66,7 +66,7 @@ public class SimpleAccordingToNeedConverterTest extends DosisTilTekstWrapperTest
 				"SimpleAccordingToNeedConverterImpl",
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-				"2 tabletter efter behov", 
+				"2 tabletter efter behov (gentages ikke)", 
 				DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertTrue(DosisTilTekstWrapper.calculateDailyDosis(dosage).isNone());
 		Assert.assertEquals(DosageType.AccordingToNeed, DosisTilTekstWrapper.getDosageType(dosage));				
@@ -91,7 +91,7 @@ public class SimpleAccordingToNeedConverterTest extends DosisTilTekstWrapperTest
 				"SimpleAccordingToNeedConverterImpl",
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-				"2 tabletter efter behov", 
+				"2 tabletter efter behov (gentages ikke)", 
 				DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertTrue(DosisTilTekstWrapper.calculateDailyDosis(dosage).isNone());
 		Assert.assertEquals(DosageType.AccordingToNeed, DosisTilTekstWrapper.getDosageType(dosage));				

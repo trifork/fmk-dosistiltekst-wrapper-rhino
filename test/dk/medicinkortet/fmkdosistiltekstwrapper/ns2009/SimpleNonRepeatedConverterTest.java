@@ -61,7 +61,7 @@ public class SimpleNonRepeatedConverterTest extends DosisTilTekstWrapperTestBase
 			"SimpleNonRepeatedConverterImpl", 
 			DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-			"1 plaster.\n   Bemærk: 5 timer før virkning ønskes", 
+			"1 plaster (gentages ikke).\n   Bemærk: 5 timer før virkning ønskes", 
 			DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertTrue(DosisTilTekstWrapper.calculateDailyDosis(dosage).isNone());
 		Assert.assertEquals(DosageType.Temporary, DosisTilTekstWrapper.getDosageType(dosage));						
@@ -87,7 +87,7 @@ public class SimpleNonRepeatedConverterTest extends DosisTilTekstWrapperTestBase
 				"LimitedNumberOfDaysConverterImpl", 
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-			"1 kapsel 2 gange.\n   Bemærk: dagen før indlæggelse", 
+			"1 kapsel 2 gange (gentages ikke).\n   Bemærk: dagen før indlæggelse", 
 			DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertEquals(2, DosisTilTekstWrapper.calculateDailyDosis(dosage).getValue().doubleValue(), 0.000000001);
 		Assert.assertEquals(DosageType.Temporary, DosisTilTekstWrapper.getDosageType(dosage));						
@@ -112,7 +112,7 @@ public class SimpleNonRepeatedConverterTest extends DosisTilTekstWrapperTestBase
 				"SimpleNonRepeatedConverterImpl", 
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-			"1 stk kl. 07:30.\n   Bemærk: før indlæggelse", 
+			"1 stk kl. 07:30 (gentages ikke).\n   Bemærk: før indlæggelse", 
 			DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertTrue(DosisTilTekstWrapper.calculateDailyDosis(dosage).isNone());
 		Assert.assertEquals(DosageType.Temporary, DosisTilTekstWrapper.getDosageType(dosage));						
@@ -137,7 +137,7 @@ public class SimpleNonRepeatedConverterTest extends DosisTilTekstWrapperTestBase
 				"SimpleNonRepeatedConverterImpl", 
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-			"1 stk kl. 07:30", 
+			"1 stk kl. 07:30 (gentages ikke)", 
 			DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertEquals(
 				1.0, 
