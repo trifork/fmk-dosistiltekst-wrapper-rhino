@@ -81,7 +81,7 @@ public class LimitedNumberOfDaysConverterTest extends DosisTilTekstWrapperTestBa
 				"LimitedNumberOfDaysConverterImpl", 
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-				"4 stk 2 gange daglig i 4 dage (gentages ikke).\n   Bemærk: ved måltid", 
+				"4 stk 2 gange daglig i 4 dage.\n   Bemærk: ved måltid", 
 				DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertEquals(
 				8.0, 
@@ -120,7 +120,7 @@ public class LimitedNumberOfDaysConverterTest extends DosisTilTekstWrapperTestBa
 				"LimitedNumberOfDaysConverterImpl", 
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));		
 		Assert.assertEquals(
-				"4-6 stk 2 gange daglig i 3 dage (gentages ikke).\n   Bemærk: ved måltid", 
+				"4-6 stk 2 gange daglig i 3 dage.\n   Bemærk: ved måltid", 
 				DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertEquals(
 				8.0, 
@@ -173,7 +173,7 @@ public class LimitedNumberOfDaysConverterTest extends DosisTilTekstWrapperTestBa
 						PlainDoseWrapper.makeDose(new BigDecimal(5), true)))));			
 					
 		Assert.assertEquals(
-				"5 ml efter behov 4 gange (gentages ikke)", 
+				"5 ml efter behov 4 gange", 
 				DosisTilTekstWrapper.convertShortText(dosage));
 	}
 	
