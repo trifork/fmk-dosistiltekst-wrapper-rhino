@@ -108,7 +108,7 @@ public class DosageWrapperTest extends DosisTilTekstWrapperTestBase {
 		Assert.assertEquals(
 			"Doseringsforløbet starter lørdag den 1. januar 2011 og gentages hver dag:\n"+
 			"   Doseringsforløb:\n"+
-			"   4 stk 2 gange daglig.\n+
+			"   4 stk 2 gange daglig.\n"+
 			"   Bemærk: mod smerter og så en meeeeeeget lang supplerende tekst der får længden på den korte tekst til at blive længere end max-længden", 
 			DosisTilTekstWrapper.convertLongText(dosage));
 	}
@@ -128,7 +128,7 @@ public class DosageWrapperTest extends DosisTilTekstWrapperTestBase {
 		Assert.assertEquals(
 			"Doseringsforløbet starter lørdag den 1. januar 2011 og gentages hver dag:\n"+
 			"   Doseringsforløb:\n"+
-			"   4 stk + 4 stk efter behov.\n+
+			"   4 stk + 4 stk efter behov.\n"+
 			"   Bemærk: mod smerter",
 			DosisTilTekstWrapper.convertLongText(dosage));
 	}
@@ -151,7 +151,7 @@ public class DosageWrapperTest extends DosisTilTekstWrapperTestBase {
 			"Bemærk at doseringen varierer:\n"+
 			"   Doseringsforløb:\n"+
 			"   Dag 1: 1 stk\n"+
-			"   Dag 2: 2 stk.\n+
+			"   Dag 2: 2 stk.\n"+
 			"   Bemærk: mod smerter",
 			DosisTilTekstWrapper.convertLongText(dosage));
 	}
@@ -173,7 +173,7 @@ public class DosageWrapperTest extends DosisTilTekstWrapperTestBase {
 		Assert.assertEquals(
 			"Doseringsforløbet starter lørdag den 1. januar 2011, gentages hver dag, og ophører fredag den 14. januar 2011:\n"+
 			"   Doseringsforløb:\n"+
-			"   1 stk morgen + 1 stk middag + 1 stk aften + 1 stk nat.\n+
+			"   1 stk morgen + 1 stk middag + 1 stk aften + 1 stk nat.\n"+
 			"   Bemærk: mod smerter",				
 			DosisTilTekstWrapper.convertLongText(dosage));
 	}
