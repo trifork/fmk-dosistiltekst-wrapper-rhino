@@ -78,13 +78,14 @@ public class SimpleAccordingToNeedConverterTest extends DosisTilTekstWrapperTest
 		Assert.assertEquals(
 				"Doseringsforløbet starter lørdag den 1. januar 2011:\n"+
 				"   Doseringsforløb:\n"+
-				"   Efter behov: 2 stk efter behov.\n   Bemærk: ved smerter",
+				"   Efter behov: 2 stk efter behov.\n"+
+				"   Bemærk: ved smerter",
 				DosisTilTekstWrapper.convertLongText(dosage));
 		Assert.assertEquals(
 				"SimpleAccordingToNeedConverterImpl", 
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-				"2 stk efter behov.\n   Bemærk: ved smerter", 
+				"2 stk efter behov.\nBemærk: ved smerter", 
 				DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertTrue(DosisTilTekstWrapper.calculateDailyDosis(dosage).isNone()); 
 		Assert.assertEquals(DosageType.AccordingToNeed, DosisTilTekstWrapper.getDosageType(dosage));				

@@ -56,13 +56,14 @@ public class ParacetamolConverterTest extends DosisTilTekstWrapperTestBase  {
 		Assert.assertEquals(
 			"Doseringsforløbet starter lørdag den 1. januar 2011, gentages hver dag, og ophører søndag den 30. januar 2011:\n"+
 			"   Doseringsforløb:\n"+
-			"   1-2 stk + 1-2 stk + 1-2 stk + 1-2 stk efter behov.\n   Bemærk: ved smerter",
+			"   1-2 stk + 1-2 stk + 1-2 stk + 1-2 stk efter behov.\n"+
+			"   Bemærk: ved smerter",
 			DosisTilTekstWrapper.convertLongText(dosage));
 		Assert.assertEquals(
 			"ParacetamolConverterImpl", 
 			DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-			"1-2 stk 3-4 gange daglig.\n   Bemærk: ved smerter", 
+			"1-2 stk 3-4 gange daglig.\nBemærk: ved smerter", 
 			DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertTrue(DosisTilTekstWrapper.calculateDailyDosis(dosage).isNone());
 		Assert.assertEquals(DosageType.Combined, DosisTilTekstWrapper.getDosageType(dosage));

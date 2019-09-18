@@ -77,13 +77,14 @@ public class MorningNoonEveningNightInNDaysConverterTest extends DosisTilTekstWr
 				"   Søndag den 2. januar 2011: 1 tablet morgen\n"+
 				"   Mandag den 3. januar 2011: 1 tablet morgen\n"+
 				"   Tirsdag den 4. januar 2011: 1 tablet morgen\n"+
-				"   Onsdag den 5. januar 2011: 1 tablet morgen.\n   Bemærk: ved måltid",
+				"   Onsdag den 5. januar 2011: 1 tablet morgen.\n"+
+				"   Bemærk: ved måltid",
 				DosisTilTekstWrapper.convertLongText(dosage));
 		Assert.assertEquals(
 				"MorningNoonEveningNightInNDaysConverterImpl", 
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-				"1 tablet morgen i 5 dage.\n   Bemærk: ved måltid", 
+				"1 tablet morgen i 5 dage.\nBemærk: ved måltid", 
 				DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertEquals(
 				1.0, 
@@ -124,13 +125,14 @@ public class MorningNoonEveningNightInNDaysConverterTest extends DosisTilTekstWr
 				"   Søndag den 2. januar 2011: 1 tablet morgen efter behov højst 1 gang\n"+
 				"   Mandag den 3. januar 2011: 1 tablet morgen efter behov højst 1 gang\n"+
 				"   Tirsdag den 4. januar 2011: 1 tablet morgen efter behov højst 1 gang\n"+
-				"   Onsdag den 5. januar 2011: 1 tablet morgen efter behov højst 1 gang.\n   Bemærk: ved måltid",
+				"   Onsdag den 5. januar 2011: 1 tablet morgen efter behov højst 1 gang.\n"+
+				"   Bemærk: ved måltid",
 				DosisTilTekstWrapper.convertLongText(dosage));
 		Assert.assertEquals(
 				"MorningNoonEveningNightInNDaysConverterImpl", 
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-				"1 tablet morgen efter behov i 5 dage.\n   Bemærk: ved måltid",	// removed, since the text otherwise would be too long 
+				"1 tablet morgen efter behov i 5 dage.\nBemærk: ved måltid",	// removed, since the text otherwise would be too long 
 				DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertNull(DosisTilTekstWrapper.calculateDailyDosis(dosage).getValue());
 		Assert.assertEquals(DosageType.AccordingToNeed, DosisTilTekstWrapper.getDosageType(dosage));						

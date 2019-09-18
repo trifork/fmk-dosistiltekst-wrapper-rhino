@@ -406,13 +406,14 @@ public class LongTextComplexConverterTest extends DosisTilTekstWrapperTestBase {
 		Assert.assertEquals(
 				"Doseringsforløbet starter onsdag den 18. april 2012:\n"+ 
 				"   Doseringsforløb:\n"+
-				"   Efter behov: 1-2 sug efter behov.\n   Bemærk: ved anstrengelse", 
+				"   Efter behov: 1-2 sug efter behov.\n"+
+				"   Bemærk: ved anstrengelse", 
 				DosisTilTekstWrapper.convertLongText(dosage));
 		Assert.assertEquals(
 				"SimpleAccordingToNeedConverterImpl", 
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-				"1-2 sug efter behov.\n   Bemærk: ved anstrengelse", 
+				"1-2 sug efter behov.\nBemærk: ved anstrengelse", 
 				DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertNull(DosisTilTekstWrapper.calculateDailyDosis(dosage).getValue());
 		Assert.assertEquals(DosageType.AccordingToNeed, DosisTilTekstWrapper.getDosageType(dosage));		
@@ -433,7 +434,8 @@ public class LongTextComplexConverterTest extends DosisTilTekstWrapperTestBase {
 		Assert.assertEquals(
 				"Doseringsforløbet starter onsdag den 18. april 2012 og gentages hver dag:\n"+
 				"   Doseringsforløb:\n"+
-				"   1-2 tabletter efter behov højst 3 gange daglig.\n   Bemærk: ved smerter", 
+				"   1-2 tabletter efter behov højst 3 gange daglig.\n"+
+				"   Bemærk: ved smerter", 
 				DosisTilTekstWrapper.convertLongText(dosage));
 		Assert.assertNull(DosisTilTekstWrapper.calculateDailyDosis(dosage).getValue());
 		Assert.assertEquals(DosageType.AccordingToNeed, DosisTilTekstWrapper.getDosageType(dosage));		
@@ -452,7 +454,8 @@ public class LongTextComplexConverterTest extends DosisTilTekstWrapperTestBase {
 		Assert.assertEquals(
 				"Doseringsforløbet starter onsdag den 18. april 2012 og gentages hver dag:\n"+
 				"   Doseringsforløb:\n"+
-				"   Efter behov: 1-2 tabletter efter behov.\n   Bemærk: ved smerter", 
+				"   Efter behov: 1-2 tabletter efter behov.\n"+
+				"   Bemærk: ved smerter", 
 				DosisTilTekstWrapper.convertLongText(dosage));
 		Assert.assertNull(DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertNull(DosisTilTekstWrapper.calculateDailyDosis(dosage).getValue());
@@ -483,7 +486,8 @@ public class LongTextComplexConverterTest extends DosisTilTekstWrapperTestBase {
 				"   Doseringsforløb:\n"+
 				"   Efter behov: 1 ml efter behov\n"+
 				"   Onsdag den 18. april 2012: 20 ml efter behov højst 2 gange\n"+
-				"   Torsdag den 19. april 2012: 20 ml efter behov højst 2 gange.\n   Bemærk: mod smerter", 
+				"   Torsdag den 19. april 2012: 20 ml efter behov højst 2 gange.\n"+
+				"   Bemærk: mod smerter", 
 				DosisTilTekstWrapper.convertLongText(dosage));
 		Assert.assertNull(DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertNull(DosisTilTekstWrapper.calculateDailyDosis(dosage).getValue());
@@ -512,7 +516,8 @@ public class LongTextComplexConverterTest extends DosisTilTekstWrapperTestBase {
 				"   Doseringsforløb:\n"+
 				"   Efter behov: 1-2 sug efter behov\n"+
 				"   Onsdag den 18. april 2012: 1-2 sug efter behov højst 1 gang\n"+
-				"   Torsdag den 19. april 2012: 1-2 sug efter behov højst 1 gang.\n   Bemærk: ved anstrengelse",
+				"   Torsdag den 19. april 2012: 1-2 sug efter behov højst 1 gang.\n"+
+				"   Bemærk: ved anstrengelse",
 				DosisTilTekstWrapper.convertLongText(dosage));
 		Assert.assertNull(DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertNull(DosisTilTekstWrapper.calculateDailyDosis(dosage).getValue());
@@ -532,7 +537,8 @@ public class LongTextComplexConverterTest extends DosisTilTekstWrapperTestBase {
 		Assert.assertEquals(
 				"Doseringsforløbet starter onsdag den 18. april 2012, forløbet gentages efter 7 dage:\n"+
 				"   Doseringsforløb:\n"+
-				"   Efter behov: 1-2 tabletter efter behov.\n   Bemærk: ved smerter",
+				"   Efter behov: 1-2 tabletter efter behov.\n"+
+				"   Bemærk: ved smerter",
 				DosisTilTekstWrapper.convertLongText(dosage));
 		Assert.assertNull(DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertNull(DosisTilTekstWrapper.calculateDailyDosis(dosage).getValue());

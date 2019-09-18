@@ -74,13 +74,14 @@ public class LimitedNumberOfDaysConverterTest extends DosisTilTekstWrapperTestBa
 				"   Lørdag den 1. januar 2011: 4 måleskefulde 2 gange\n"+
 				"   Søndag den 2. januar 2011: 4 måleskefulde 2 gange\n"+
 				"   Mandag den 3. januar 2011: 4 måleskefulde 2 gange\n"+
-				"   Tirsdag den 4. januar 2011: 4 måleskefulde 2 gange.\n   Bemærk: ved måltid",
+				"   Tirsdag den 4. januar 2011: 4 måleskefulde 2 gange.\n"+
+				"   Bemærk: ved måltid",
 				DosisTilTekstWrapper.convertLongText(dosage));
 		Assert.assertEquals(
 				"LimitedNumberOfDaysConverterImpl", 
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-				"4 måleskefulde 2 gange daglig i 4 dage.\n   Bemærk: ved måltid", 
+				"4 måleskefulde 2 gange daglig i 4 dage.\nBemærk: ved måltid", 
 				DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertEquals(
 				8.0, 
@@ -118,7 +119,8 @@ public class LimitedNumberOfDaysConverterTest extends DosisTilTekstWrapperTestBa
 				"   Lørdag den 1. januar 2011: 4 måleskefulde efter behov højst 2 gange\n"+
 				"   Søndag den 2. januar 2011: 4 måleskefulde efter behov højst 2 gange\n"+
 				"   Mandag den 3. januar 2011: 4 måleskefulde efter behov højst 2 gange\n"+
-				"   Tirsdag den 4. januar 2011: 4 måleskefulde efter behov højst 2 gange.\n   Bemærk: ved måltid",
+				"   Tirsdag den 4. januar 2011: 4 måleskefulde efter behov højst 2 gange.\n"+
+				"   Bemærk: ved måltid",
 				DosisTilTekstWrapper.convertLongText(dosage));
 		Assert.assertNull(DosisTilTekstWrapper.calculateDailyDosis(dosage).getValue()); 				
 		Assert.assertEquals(DosageType.AccordingToNeed, DosisTilTekstWrapper.getDosageType(dosage));
@@ -137,13 +139,14 @@ public class LimitedNumberOfDaysConverterTest extends DosisTilTekstWrapperTestBa
 		Assert.assertEquals(
 				"Doseringsforløbet starter lørdag den 1. januar 2011 og ophører efter det angivne forløb:\n"+
 				"   Doseringsforløb:\n"+
-				"   Lørdag den 1. januar 2011: 4 tabletter.\n   Bemærk: ved måltid",
+				"   Lørdag den 1. januar 2011: 4 tabletter.\n"+
+				"   Bemærk: ved måltid",
 				DosisTilTekstWrapper.convertLongText(dosage));
 		Assert.assertEquals(
 				"LimitedNumberOfDaysConverterImpl", 
 				DosisTilTekstWrapper.getShortTextConverterClassName(dosage));
 		Assert.assertEquals(
-				"4 tabletter 1 gang.\n   Bemærk: ved måltid", 
+				"4 tabletter 1 gang.\nBemærk: ved måltid", 
 				DosisTilTekstWrapper.convertShortText(dosage));
 		Assert.assertEquals(4.0, DosisTilTekstWrapper.calculateDailyDosis(dosage).getValue().doubleValue(), 0.000000001); 				
 		Assert.assertEquals(DosageType.OneTime, DosisTilTekstWrapper.getDosageType(dosage));

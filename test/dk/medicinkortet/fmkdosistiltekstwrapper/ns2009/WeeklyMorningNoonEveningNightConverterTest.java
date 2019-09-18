@@ -69,7 +69,8 @@ public class WeeklyMorningNoonEveningNightConverterTest extends DosisTilTekstWra
 				 "   Doseringsforløb:\n"+
 				 "   Torsdag: 1 stk morgen + 1 stk aften\n"+
 				 "   Fredag: 1 stk morgen + 1 stk aften\n"+
-				 "   Søndag: 1 stk morgen + 1 stk aften.\n   Bemærk: ved måltid",
+				 "   Søndag: 1 stk morgen + 1 stk aften.\n"+
+				 "   Bemærk: ved måltid",
 				DosisTilTekstWrapper.convertLongText(dosage));
 		Assert.assertEquals(
 				6/7., 
