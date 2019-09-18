@@ -38,7 +38,7 @@ public class NumberOfWholeWeeksConverterTest extends DosisTilTekstWrapperTestBas
                  "   Torsdag den 13. februar 2014: 1 stk middag.\n"+
 				 "   Bemærk: ved måltid", DosisTilTekstWrapper.convertLongText(dosage));
         Assert.assertNull(DosisTilTekstWrapper.convertShortText(dosage));
-        Assert.assertEquals("1 stk middag daglig i en uge, herefter en uges pause.\n   Bemærk: ved måltid", DosisTilTekstWrapper.convertShortText(dosage, 100));
+        Assert.assertEquals("1 stk middag daglig i en uge, herefter en uges pause.\nBemærk: ved måltid", DosisTilTekstWrapper.convertShortText(dosage, 100));
         Assert.assertEquals(
                 0.5,
                 DosisTilTekstWrapper.calculateDailyDosis(dosage).getValue().doubleValue(),
